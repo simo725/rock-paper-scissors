@@ -59,25 +59,48 @@ function playRound(humanChoice, computerChoice) {
     
     else if (humanChoice === "Rock" && computerChoice === "Scissors") {
 
-
         console.log("You win! Rock beat Scissors!");
+        return humanScore++;
 
     } else if (humanChoice === "Scissors" && computerChoice === "Paper"){
 
         console.log("You win! Scissors beat Paper!");
+        return humanScore++;
 
     } else if (humanChoice === "Paper" && computerChoice === "Rock") {
 
         console.log("You win! Paper beat Rock!");
+        return humanScore++;
 
     } else {
 
         console.log("You Lose!");
+        return computerScore++;
     }
 }
 
-  
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
-  
-  playRound(humanSelection, computerSelection);
+
+
+  function playGame(){
+    
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+    playRound(getHumanChoice(), getComputerChoice());
+
+    if (humanScore === computerScore){
+
+        console.log("PAIR!" , "Human Score: " , humanScore , "Computer Score: " , computerScore);
+
+    } else if (humanScore > computerScore) {
+
+        console.log("YOU WIN ! ! !" , "Human Score: " , humanScore , "Computer Score: " , computerScore);
+
+  } else {
+
+    console.log("YOU LOSE !" , "Human Score: " , humanScore , "Computer Score: " , computerScore);
+  }
+}
+
+  playGame();
