@@ -8,40 +8,76 @@ function getHumanChoice(){
 
     if (humanChoice.toLowerCase() === "rock") {
 
-        console.log("Rock")
+        console.log("Rock");
+        return "Rock";
 
     } else if (humanChoice.toLowerCase() === "paper" ) {
 
-        console.log("Paper")
+        console.log("Paper");
+        return "Paper";
 
     } else if (humanChoice.toLowerCase() === "scissors") {
         
-        console.log("Scissors")
+        console.log("Scissors");
+        return "Scissors";
        
     }
 
 }
 
-getHumanChoice();
 
 
 function getComputerChoice(){
 
-    let choice = Math.floor(Math.random() * 3);
+    let computerChoice = Math.floor(Math.random() * 3);
 
-    if (choice === 0){
+    if (computerChoice === 0){
 
         console.log("Rock");
+        return "Rock";
 
-    } else if (choice === 1){
+    } else if (computerChoice === 1){
 
         console.log("Paper");
+        return "Paper";
 
     } else {
 
         console.log("Scissors");
+        return "Scissors";
 
     }
 }
 
-getComputerChoice();
+
+
+function playRound(humanChoice, computerChoice) {
+    
+    if (humanChoice === computerChoice){
+        console.log("Pair!");
+    }
+    
+    else if (humanChoice === "Rock" && computerChoice === "Scissors") {
+
+
+        console.log("You win! Rock beat Scissors!");
+
+    } else if (humanChoice === "Scissors" && computerChoice === "Paper"){
+
+        console.log("You win! Scissors beat Paper!");
+
+    } else if (humanChoice === "Paper" && computerChoice === "Rock") {
+
+        console.log("You win! Paper beat Rock!");
+
+    } else {
+
+        console.log("You Lose!");
+    }
+}
+
+  
+  const humanSelection = getHumanChoice();
+  const computerSelection = getComputerChoice();
+  
+  playRound(humanSelection, computerSelection);
